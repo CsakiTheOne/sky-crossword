@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/sky-crossword/static/css/main.1e6af135.css",
+    "main.js": "/sky-crossword/static/js/main.ad77b402.js",
+    "static/js/787.82ca3d22.chunk.js": "/sky-crossword/static/js/787.82ca3d22.chunk.js",
+    "index.html": "/sky-crossword/index.html",
+    "main.1e6af135.css.map": "/sky-crossword/static/css/main.1e6af135.css.map",
+    "main.ad77b402.js.map": "/sky-crossword/static/js/main.ad77b402.js.map",
+    "787.82ca3d22.chunk.js.map": "/sky-crossword/static/js/787.82ca3d22.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.1e6af135.css",
+    "static/js/main.ad77b402.js"
+  ]
+}
