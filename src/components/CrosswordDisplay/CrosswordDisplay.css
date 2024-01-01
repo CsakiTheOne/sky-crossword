@@ -1,0 +1,57 @@
+.CrosswordDisplay {}
+
+.CrosswordDisplay>.grid {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+.CrosswordDisplay>.grid .row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+.CrosswordDisplay>.grid .cell {
+    border: 1px solid white;
+    width: 28px;
+    height: 28px;
+    position: relative;
+}
+
+.CrosswordDisplay>.grid .cell>input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    background: none;
+    text-align: center;
+    font-weight: bold;
+    color: white;
+    text-transform: uppercase;
+    outline: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.CrosswordDisplay>.grid .cell.empty {
+    border: #222 1px dotted;
+}
+
+.CrosswordDisplay>.grid .cell>.number {
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: .7rem;
+}
+
+.CrosswordDisplay>.clues {}
