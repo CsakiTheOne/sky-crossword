@@ -116,8 +116,17 @@ const CrosswordDisplay: React.FC<Props> = (props) => {
                             if (!cell) {
                                 return <div className="cell empty" key={-1}></div>;
                             }
-                            return <div className="cell" key={rowIndex * row.length + cellIndex} >
-                                {cell.number && <div className="number">{cell.number}</div>}
+                            return <div
+                                className="cell"
+                                key={rowIndex * row.length + cellIndex}
+                                title={
+                                    cell.number
+                                        ? [...accrossClues, ...downClues]
+                                            .filter((clue) => clue.startsWith(cell.number + '.'))
+                                            .join('\n')
+                                        : undefined
+                                }
+                            >
                                 <input
                                     type="text"
                                     value={cell.letter}
@@ -134,6 +143,20 @@ const CrosswordDisplay: React.FC<Props> = (props) => {
                                     }}
                                     maxLength={1}
                                 />
+                                {
+                                    cell.number && <div
+                                        className="number"
+                                        onClick={() => {
+                                            alert(
+                                                [...accrossClues, ...downClues]
+                                                    .filter((clue) => clue.startsWith(cell.number + '.'))
+                                                    .join('\n')
+                                            );
+                                        }}
+                                    >
+                                        {cell.number}
+                                    </div>
+                                }
                             </div>;
                         })}
                     </div>
