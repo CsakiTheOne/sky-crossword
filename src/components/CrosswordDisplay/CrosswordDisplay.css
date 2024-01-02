@@ -2,6 +2,7 @@
 
 .CrosswordDisplay>.grid {
     display: flex;
+    padding: 8px 32px;
     flex-direction: column;
     align-items: flex-start;
     overflow-x: auto;
@@ -19,6 +20,19 @@
     width: 28px;
     height: 28px;
     position: relative;
+    transition: all .2s ease-in-out;
+}
+
+.CrosswordDisplay>.grid .cell.empty {
+    border: transparent 1px dotted;
+}
+
+.CrosswordDisplay>.grid .cell:hover:not(.empty) {
+    background-color: #444;
+}
+
+.CrosswordDisplay>.grid .cell.selected {
+    border: 1px solid cyan;
 }
 
 .CrosswordDisplay>.grid .cell>input {
@@ -37,14 +51,6 @@
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-}
-
-.CrosswordDisplay>.grid .cell.empty {
-    border: #222 1px dotted;
 }
 
 .CrosswordDisplay>.grid .cell>.number {
@@ -61,6 +67,10 @@
     cursor: pointer;
     text-align: center;
     transition: all .2s ease-in-out;
+}
+
+.CrosswordDisplay>.grid .cell.selected>.number {
+    background-color: cyan;
 }
 
 .CrosswordDisplay>.grid .cell>.number:hover {
@@ -80,4 +90,20 @@
     transition: none;
 }
 
-.CrosswordDisplay>.clues {}
+.CrosswordDisplay .clues>ol {
+    background-color: #222;
+    padding: 8px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.CrosswordDisplay .clues>ol>li {
+    margin-left: 28px;
+    padding: 8px 0;
+    cursor: pointer;
+    transition: all .2s ease-in-out;
+}
+
+.CrosswordDisplay .clues>ol>li.selected {
+    color: cyan;
+}

@@ -9,6 +9,7 @@ interface Props {
 
 const CrosswordDisplay: React.FC<Props> = (props) => {
     const [grid, setGrid] = React.useState<(Cell | null)[][]>([]);
+    const [selectedNumber, setSelectedNumber] = React.useState<number | null>(null);
 
     const accrossClues = [
         "2. You can play this musical instrument for free, along with the Guitar, in Village Theatre, near the Stage",
@@ -72,37 +73,37 @@ const CrosswordDisplay: React.FC<Props> = (props) => {
         }
 
         // Across Row, Column, Number, Length
-        addAcross(1, 19, 2, 4);
-        addAcross(4, 13, 4, 11);
-        addAcross(6, 10, 7, 6);
-        addAcross(11, 0, 10, 21);
-        addAcross(13, 2, 11, 14);
-        addAcross(15, 17, 13, 3);
-        addAcross(16, 12, 14, 4);
-        addAcross(18, 11, 15, 7);
-        addAcross(22, 19, 22, 8);
-        addAcross(23, 6, 23, 9);
-        addAcross(26, 5, 25, 18);
-        addAcross(28, 15, 26, 10);
-        addAcross(31, 4, 28, 5);
-        addAcross(31, 17, 29, 7);
+        addAcross(0, 19, 2, 4);
+        addAcross(3, 13, 4, 11);
+        addAcross(5, 10, 7, 6);
+        addAcross(10, 0, 10, 21);
+        addAcross(12, 3, 11, 13);
+        addAcross(14, 17, 13, 3);
+        addAcross(15, 12, 14, 4);
+        addAcross(17, 11, 15, 7);
+        addAcross(21, 19, 22, 8);
+        addAcross(22, 6, 23, 9);
+        addAcross(25, 5, 25, 18);
+        addAcross(27, 15, 26, 10);
+        addAcross(30, 4, 28, 5);
+        addAcross(30, 17, 29, 7);
         // Down Row, Column, Number, Length
         addDown(0, 15, 1, 8);
-        addDown(1, 19, 2, 12);
-        addDown(3, 10, 3, 4);
-        addDown(4, 22, 5, 5);
-        addDown(6, 8, 6, 6);
-        addDown(6, 17, 8, 11);
-        addDown(10, 14, 9, 18);
-        addDown(13, 9, 12, 4);
-        addDown(18, 25, 16, 7);
-        addDown(19, 9, 17, 5);
-        addDown(20, 17, 18, 7);
-        addDown(20, 22, 19, 5);
-        addDown(21, 11, 20, 6);
-        addDown(21, 20, 21, 12);
-        addDown(25, 8, 24, 9);
-        addDown(30, 23, 27, 4);
+        addDown(0, 19, 2, 12);
+        addDown(2, 10, 3, 4);
+        addDown(3, 22, 5, 5);
+        addDown(5, 8, 6, 6);
+        addDown(5, 17, 8, 11);
+        addDown(9, 14, 9, 18);
+        addDown(12, 9, 12, 4);
+        addDown(17, 25, 16, 7);
+        addDown(18, 9, 17, 5);
+        addDown(19, 17, 18, 7);
+        addDown(19, 22, 19, 5);
+        addDown(20, 11, 20, 6);
+        addDown(20, 20, 21, 12);
+        addDown(24, 8, 24, 9);
+        addDown(29, 23, 27, 4);
 
         setGrid(grid);
     }, []);
@@ -114,10 +115,14 @@ const CrosswordDisplay: React.FC<Props> = (props) => {
                     <div className="row" key={rowIndex}>
                         {row.map((cell, cellIndex) => {
                             if (!cell) {
-                                return <div className="cell empty" key={-1}></div>;
+                                return <div
+                                    className="cell empty"
+                                    key={-1}
+                                    onClick={() => { setSelectedNumber(null) }}
+                                ></div>;
                             }
                             return <div
-                                className="cell"
+                                className={'cell' + (selectedNumber === cell.number ? ' selected' : '')}
                                 key={rowIndex * row.length + cellIndex}
                                 title={
                                     cell.number
@@ -167,11 +172,27 @@ const CrosswordDisplay: React.FC<Props> = (props) => {
                 <div className="clues">
                     <h3>Across</h3>
                     <ol>
-                        {accrossClues.map((clue) => <li value={clue.split('.')[0]}>{clue.split('. ')[1]}</li>)}
+                        {
+                            accrossClues.map((clue) => <li
+                                className={selectedNumber === parseInt(clue.split('.')[0]) ? 'selected' : ''}
+                                value={clue.split('.')[0]}
+                                onClick={() => { setSelectedNumber(parseInt(clue.split('.')[0])) }}
+                            >
+                                {clue.split('. ')[1]}
+                            </li>)
+                        }
                     </ol>
                     <h3>Down</h3>
                     <ol>
-                        {downClues.map((clue) => <li value={clue.split('.')[0]}>{clue.split('. ')[1]}</li>)}
+                        {
+                            downClues.map((clue) => <li
+                                className={selectedNumber === parseInt(clue.split('.')[0]) ? 'selected' : ''}
+                                value={clue.split('.')[0]}
+                                onClick={() => { setSelectedNumber(parseInt(clue.split('.')[0])) }}
+                            >
+                                {clue.split('. ')[1]}
+                            </li>)
+                        }
                     </ol>
                 </div>
             </Container>
