@@ -1,15 +1,16 @@
 {
   "files": {
-    "main.css": "/sky-crossword/static/css/main.78242b15.css",
-    "main.js": "/sky-crossword/static/js/main.39fed1de.js",
+    "main.css": "/sky-crossword/static/css/main.44cac955.css",
+    "main.js": "/sky-crossword/static/js/main.07cec019.js",
     "static/js/787.82ca3d22.chunk.js": "/sky-crossword/static/js/787.82ca3d22.chunk.js",
+    "static/media/SKY_COTL_CROSSWORD_BY_RAJ_BADIANI.jpg": "/sky-crossword/static/media/SKY_COTL_CROSSWORD_BY_RAJ_BADIANI.739da57cf99213514dff.jpg",
     "index.html": "/sky-crossword/index.html",
-    "main.78242b15.css.map": "/sky-crossword/static/css/main.78242b15.css.map",
-    "main.39fed1de.js.map": "/sky-crossword/static/js/main.39fed1de.js.map",
+    "main.44cac955.css.map": "/sky-crossword/static/css/main.44cac955.css.map",
+    "main.07cec019.js.map": "/sky-crossword/static/js/main.07cec019.js.map",
     "787.82ca3d22.chunk.js.map": "/sky-crossword/static/js/787.82ca3d22.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.78242b15.css",
-    "static/js/main.39fed1de.js"
+    "static/css/main.44cac955.css",
+    "static/js/main.07cec019.js"
   ]
 }
