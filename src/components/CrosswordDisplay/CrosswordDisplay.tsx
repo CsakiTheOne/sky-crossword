@@ -88,7 +88,7 @@ const CrosswordDisplay: React.FC<Props> = (props) => {
         addAcross(30, 4, 28, 5);
         addAcross(30, 17, 29, 7);
         // Down Row, Column, Number, Length
-        addDown(0, 15, 1, 8);
+        addDown(0, 15, 1, 7);
         addDown(0, 19, 2, 12);
         addDown(2, 10, 3, 4);
         addDown(3, 22, 5, 5);
